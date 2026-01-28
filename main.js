@@ -26,16 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const dinnerMenus = [
-    "Kimchi Jjigae",
-    "Bibimbap",
-    "Samgyeopsal",
-    "Bulgogi",
-    "Japchae",
-    "Tteokbokki",
-    "Sundubu Jjigae",
-    "Galbi",
-    "Jajangmyeon",
-    "Ramyeon"
+    "김치찌개",
+    "비빔밥",
+    "삼겹살",
+    "불고기",
+    "잡채",
+    "떡볶이",
+    "순두부찌개",
+    "갈비",
+    "짜장면",
+    "라면"
 ];
 
 const generatorBtn = document.getElementById('generator-btn');
