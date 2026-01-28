@@ -29,6 +29,27 @@
         <button id="generator-btn">Get Recommendation</button>
         <div id="menu-recommendation-container"></div>
     </div>
+
+    <div class="form-container">
+        <h2>제휴 문의</h2>
+        <form action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">메시지:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">문의하기</button>
+        </form>
+        <p class="formspree-note">
+            이 폼은 Formspree를 통해 작동합니다. 'YOUR_FORMSPREE_ENDPOINT'를 실제 Formspree 엔드포인트 URL로 교체해주세요.
+            자세한 내용은 <a href="https://formspree.io/" target="_blank">Formspree</a>를 참조하세요.
+        </p>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
