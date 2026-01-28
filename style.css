@@ -61,27 +61,21 @@ p {
     filter: brightness(1.2);
 }
 
-#lotto-numbers-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-lotto-ball {
-    --ball-color: var(--secondary-color);
-    width: 60px;
-    height: 60px;
+#menu-recommendation-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    background-color: var(--ball-color);
+    margin-top: 2rem;
+    min-height: 60px;
+}
+
+.menu-item {
+    background-color: var(--primary-color);
     color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
     font-size: 1.5rem;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* Theme Switcher Styles */
@@ -143,9 +137,7 @@ input:checked + .slider:before {
         padding: 1.5rem;
     }
 
-    lotto-ball {
-        width: 50px;
-        height: 50px;
+    .menu-item {
         font-size: 1.2rem;
     }
 }
