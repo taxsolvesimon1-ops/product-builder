@@ -167,6 +167,25 @@ p {
     text-decoration: underline;
 }
 
+/* Comments Container Styles */
+.comments-container {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.comments-container h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
 /* Switcher Styles */
 .switch-container {
     position: fixed;
@@ -243,6 +262,10 @@ input:checked + .slider:before {
         font-size: 1.2rem;
     }
     .form-container {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+    .comments-container {
         padding: 1.5rem;
         max-width: 90%;
     }
