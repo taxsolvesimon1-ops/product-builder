@@ -1,4 +1,30 @@
 
+const themeSwitch = document.getElementById('checkbox');
+
+// Function to apply the theme
+const applyTheme = (isDarkMode) => {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        themeSwitch.checked = true;
+    } else {
+        document.body.classList.remove('dark-mode');
+        themeSwitch.checked = false;
+    }
+}
+
+// Event listener for the theme switch
+themeSwitch.addEventListener('change', (event) => {
+    const isDarkMode = event.target.checked;
+    localStorage.setItem('darkMode', isDarkMode);
+    applyTheme(isDarkMode);
+});
+
+// Check for saved theme preference on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    applyTheme(isDarkMode);
+});
+
 class LottoBall extends HTMLElement {
     // 1. Specify observed attributes
     static get observedAttributes() {
@@ -12,6 +38,14 @@ class LottoBall extends HTMLElement {
         // Create the basic structure
         const style = document.createElement('style');
         style.textContent = `
+            :host {
+                --ball-color-1: #f5a623; /* Orange */
+                --ball-color-2: #4a90e2; /* Blue */
+                --ball-color-3: #e94e77; /* Pink */
+                --ball-color-4: #50e3c2; /* Teal */
+                --ball-color-5: #7ed321; /* Green */
+            }
+
             .ball {
                 width: 60px;
                 height: 60px;
@@ -50,11 +84,12 @@ class LottoBall extends HTMLElement {
 
     getColorForNumber(number) {
         const num = parseInt(number, 10);
-        if (num <= 10) return '#f5a623'; // Orange
-        if (num <= 20) return '#4a90e2'; // Blue
-        if (num <= 30) return '#e94e77'; // Pink
-        if (num <= 40) return '#50e3c2'; // Teal
-        return '#7ed321'; // Green
+        const style = getComputedStyle(this);
+        if (num <= 10) return style.getPropertyValue('--ball-color-1');
+        if (num <= 20) return style.getPropertyValue('--ball-color-2');
+        if (num <= 30) return style.getPropertyValue('--ball-color-3');
+        if (num <= 40) return style.getPropertyValue('--ball-color-4');
+        return style.getPropertyValue('--ball-color-5');
     }
 }
 
