@@ -1,64 +1,80 @@
 
+// Theme Switcher
 const themeSwitch = document.getElementById('checkbox');
-
-// Function to apply the theme
 const applyTheme = (isDarkMode) => {
-    if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        themeSwitch.checked = true;
-    } else {
-        document.body.classList.remove('dark-mode');
-        themeSwitch.checked = false;
-    }
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    themeSwitch.checked = isDarkMode;
 }
-
-// Event listener for the theme switch
 themeSwitch.addEventListener('change', (event) => {
-    const isDarkMode = event.target.checked;
-    localStorage.setItem('darkMode', isDarkMode);
-    applyTheme(isDarkMode);
+    localStorage.setItem('darkMode', event.target.checked);
+    applyTheme(event.target.checked);
 });
 
-// Check for saved theme preference on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    applyTheme(isDarkMode);
+// Language Switcher
+const languageToggle = document.getElementById('language-toggle');
+const applyLanguage = (isKorean) => {
+    currentMenus = isKorean ? dinnerMenusKR : dinnerMenusEN;
+    languageToggle.checked = isKorean;
+};
+languageToggle.addEventListener('change', (event) => {
+    localStorage.setItem('isKorean', event.target.checked);
+    applyLanguage(event.target.checked);
 });
 
-const dinnerMenus = [
-    "김치찌개",
-    "비빔밥",
-    "삼겹살",
-    "불고기",
-    "잡채",
-    "떡볶이",
-    "순두부찌개",
-    "갈비",
-    "짜장면",
-    "라면",
-    "피자"
-];
+// Menu Data
+const dinnerMenusKR = {
+    "김치찌개": "Kimchi Jjigae",
+    "비빔밥": "Bibimbap",
+    "삼겹살": "Samgyeopsal",
+    "불고기": "Bulgogi",
+    "잡채": "Japchae",
+    "떡볶이": "Tteokbokki",
+    "순두부찌개": "Sundubu Jjigae",
+    "갈비": "Galbi",
+    "짜장면": "Jajangmyeon",
+    "라면": "Ramyeon",
+    "피자": "Pizza"
+};
+const dinnerMenusEN = Object.fromEntries(Object.entries(dinnerMenusKR).map(([k, v]) => [v, k]));
+let currentMenus = dinnerMenusKR; // Default to Korean
 
 const generatorBtn = document.getElementById('generator-btn');
 const menuRecommendationContainer = document.getElementById('menu-recommendation-container');
 
 generatorBtn.addEventListener('click', () => {
     menuRecommendationContainer.innerHTML = '';
-    const randomIndex = Math.floor(Math.random() * dinnerMenus.length);
-    const recommendedMenu = dinnerMenus[randomIndex];
-    
+
+    const menuKeys = Object.keys(currentMenus);
+    const randomIndex = Math.floor(Math.random() * menuKeys.length);
+    const recommendedMenu = menuKeys[randomIndex];
+    const englishMenuName = languageToggle.checked ? currentMenus[recommendedMenu] : recommendedMenu;
+
+    // Create and display the menu item text
     const menuElement = document.createElement('div');
     menuElement.classList.add('menu-item');
     menuElement.textContent = recommendedMenu;
-    
     menuRecommendationContainer.appendChild(menuElement);
 
-    if (recommendedMenu === "피자") {
-        const pizzaImage = document.createElement('img');
-        pizzaImage.src = 'pizza.jpg';
-        pizzaImage.alt = 'Delicious Pizza';
-        pizzaImage.style.width = '200px'; 
-        pizzaImage.style.marginTop = '1rem';
-        menuRecommendationContainer.appendChild(pizzaImage);
+    // Create and display the image
+    const imageElement = document.createElement('img');
+    if (englishMenuName === "Pizza") {
+        imageElement.src = 'pizza.jpg';
+    } else {
+        imageElement.src = `https://via.placeholder.com/200x200.png?text=${englishMenuName.replace(/\s/g, '+')}`;
     }
+    imageElement.alt = `An image of ${recommendedMenu}`;
+    imageElement.style.width = '200px';
+    imageElement.style.marginTop = '1rem';
+    imageElement.style.borderRadius = '8px';
+    menuRecommendationContainer.appendChild(imageElement);
+});
+
+
+// On Page Load
+document.addEventListener('DOMContentLoaded', () => {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    applyTheme(isDarkMode);
+
+    const isKorean = localStorage.getItem('isKorean') === 'true';
+    applyLanguage(isKorean);
 });
