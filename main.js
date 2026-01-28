@@ -35,7 +35,8 @@ const dinnerMenus = [
     "순두부찌개",
     "갈비",
     "짜장면",
-    "라면"
+    "라면",
+    "피자"
 ];
 
 const generatorBtn = document.getElementById('generator-btn');
@@ -51,4 +52,13 @@ generatorBtn.addEventListener('click', () => {
     menuElement.textContent = recommendedMenu;
     
     menuRecommendationContainer.appendChild(menuElement);
+
+    if (recommendedMenu === "피자") {
+        const pizzaImage = document.createElement('img');
+        pizzaImage.src = 'pizza.jpg';
+        pizzaImage.alt = 'Delicious Pizza';
+        pizzaImage.style.width = '200px'; 
+        pizzaImage.style.marginTop = '1rem';
+        menuRecommendationContainer.appendChild(pizzaImage);
+    }
 });
