@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Naver
+User-agent: Yeti
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://taxsolvesimon1-ops.github.io/product-builder/sitemap.xml
