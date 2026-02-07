@@ -1,16 +1,76 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>오늘 저녁 뭐 먹지? - 저녁 메뉴 추천 서비스</title>
+    <meta name="description" content="매일 고민되는 저녁 메뉴! 버튼 한 번으로 오늘의 저녁 메뉴를 추천받아 보세요. 다양한 한식, 양식, 중식, 일식 메뉴를 랜덤으로 추천해드립니다.">
+    <meta name="keywords" content="저녁메뉴, 메뉴추천, 오늘저녁, 뭐먹지, 저녁뭐먹지, 메뉴고민, 랜덤메뉴, dinner menu, food recommendation">
+    <meta name="author" content="Menu Recommendation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://taxsolvesimon1-ops.github.io/product-builder/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://taxsolvesimon1-ops.github.io/product-builder/">
+    <meta property="og:title" content="오늘 저녁 뭐 먹지? - 저녁 메뉴 추천 서비스">
+    <meta property="og:description" content="매일 고민되는 저녁 메뉴! 버튼 한 번으로 오늘의 저녁 메뉴를 추천받아 보세요.">
+    <meta property="og:image" content="https://taxsolvesimon1-ops.github.io/product-builder/og-image.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="저녁 메뉴 추천">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://taxsolvesimon1-ops.github.io/product-builder/">
+    <meta name="twitter:title" content="오늘 저녁 뭐 먹지? - 저녁 메뉴 추천 서비스">
+    <meta name="twitter:description" content="매일 고민되는 저녁 메뉴! 버튼 한 번으로 오늘의 저녁 메뉴를 추천받아 보세요.">
+    <meta name="twitter:image" content="https://taxsolvesimon1-ops.github.io/product-builder/og-image.png">
+
+    <!-- Naver Search Advisor -->
+    <meta name="naver-site-verification" content="네이버서치어드바이저인증코드">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "저녁 메뉴 추천",
+        "alternateName": "Dinner Menu Recommendation",
+        "description": "매일 고민되는 저녁 메뉴를 랜덤으로 추천해주는 서비스입니다.",
+        "url": "https://taxsolvesimon1-ops.github.io/product-builder/",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Menu Recommendation"
+        }
+    }
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JCZ5H87F1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6JCZ5H87F1');
     </script>
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -19,58 +79,55 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vag94qdxye");
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinner Menu Recommendation</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="switch-container">
+    <header class="switch-container">
         <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
+            <label class="theme-switch" for="checkbox" aria-label="다크모드 전환">
                 <input type="checkbox" id="checkbox" />
                 <div class="slider round"></div>
             </label>
         </div>
         <div class="language-switch-wrapper">
-            <label class="language-switch" for="language-toggle">
+            <label class="language-switch" for="language-toggle" aria-label="언어 전환">
                 <input type="checkbox" id="language-toggle" />
                 <div class="slider round"></div>
             </label>
             <span class="language-label">EN/KR</span>
         </div>
-    </div>
-    <div class="container">
-        <h1>Dinner Menu Recommendation</h1>
-        <p>Click the button to get a dinner menu recommendation!</p>
-        <button id="generator-btn">Get Recommendation</button>
-        <div id="menu-recommendation-container"></div>
-    </div>
+    </header>
 
-    <div class="form-container">
-        <h2>제휴 문의</h2>
-        <form action="https://formspree.io/f/mkordqpy" method="POST">
-            <label for="name">이름:</label>
-            <input type="text" id="name" name="name" required>
+    <main>
+        <article class="container">
+            <h1>오늘 저녁 뭐 먹지?</h1>
+            <p>버튼을 클릭하면 저녁 메뉴를 추천해드립니다!</p>
+            <button id="generator-btn" aria-label="메뉴 추천 받기">추천 받기</button>
+            <section id="menu-recommendation-container" aria-live="polite"></section>
+        </article>
 
-            <label for="email">이메일:</label>
-            <input type="email" id="email" name="email" required>
+        <section class="form-container">
+            <h2>제휴 문의</h2>
+            <form action="https://formspree.io/f/mkordqpy" method="POST">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required autocomplete="name">
 
-            <label for="message">메시지:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
 
-            <button type="submit">문의하기</button>
-        </form>
-    </div>
+                <label for="message">메시지:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">문의하기</button>
+            </form>
+        </section>
+
+        <section class="comments-container">
+            <h2>댓글</h2>
+            <div id="disqus_thread"></div>
+        </section>
+    </main>
 
     <script src="main.js"></script>
-
-    <div class="comments-container">
-        <h2>Comments</h2>
-        <div id="disqus_thread"></div>
-    </div>
     <script>
         var disqus_config = function () {
             this.page.url = window.location.href;
@@ -83,6 +140,6 @@
             (d.head || d.body).appendChild(s);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>댓글을 보려면 JavaScript를 활성화해주세요. <a href="https://disqus.com/?ref_noscript">Disqus 댓글</a></noscript>
 </body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://taxsolvesimon1-ops.github.io/product-builder/sitemap.xml
