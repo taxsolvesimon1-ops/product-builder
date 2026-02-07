@@ -167,6 +167,57 @@ p {
     text-decoration: underline;
 }
 
+/* HowTo Container Styles */
+.howto-container {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.howto-container h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.howto-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.howto-steps li {
+    background-color: var(--form-bg);
+    border: 1px solid var(--form-border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s, border-color 0.3s;
+    line-height: 1.6;
+}
+
+.howto-steps li:hover {
+    border-color: var(--primary-color);
+}
+
+.howto-steps li strong {
+    color: var(--primary-color);
+}
+
+.howto-steps li em {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-style: normal;
+}
+
 /* FAQ Container Styles */
 .faq-container {
     background-color: var(--container-bg);
@@ -334,6 +385,10 @@ input:checked + .slider:before {
         max-width: 90%;
     }
     .faq-container {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+    .howto-container {
         padding: 1.5rem;
         max-width: 90%;
     }
