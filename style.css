@@ -167,6 +167,70 @@ p {
     text-decoration: underline;
 }
 
+/* FAQ Container Styles */
+.faq-container {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.faq-container h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.faq-container details {
+    background-color: var(--form-bg);
+    border: 1px solid var(--form-border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.faq-container details[open] {
+    border-color: var(--primary-color);
+}
+
+.faq-container summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--primary-color);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-container summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-container summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.faq-container details[open] summary::after {
+    content: '-';
+}
+
+.faq-container details p {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
 /* Comments Container Styles */
 .comments-container {
     background-color: var(--container-bg);
@@ -266,6 +330,10 @@ input:checked + .slider:before {
         max-width: 90%;
     }
     .comments-container {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+    .faq-container {
         padding: 1.5rem;
         max-width: 90%;
     }
