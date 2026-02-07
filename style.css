@@ -85,6 +85,93 @@ p {
     font-weight: bold;
 }
 
+/* Share Container Styles */
+.share-container {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--form-border);
+}
+
+.share-title {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.share-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.share-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.share-btn:active {
+    transform: scale(0.95);
+}
+
+.share-btn.kakao {
+    background-color: #FEE500;
+    color: #3C1E1E;
+}
+
+.share-btn.facebook {
+    background-color: #1877F2;
+    color: #fff;
+}
+
+.share-btn.twitter {
+    background-color: #000;
+    color: #fff;
+}
+
+.share-btn.copy {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+body.dark-mode .toast {
+    background-color: #fff;
+    color: #333;
+}
+
 /* Form Container Styles */
 .form-container {
     background-color: var(--form-bg);
